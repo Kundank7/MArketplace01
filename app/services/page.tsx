@@ -1,13 +1,7 @@
-'use client';
-
-import dynamic from "next/dynamic"
+import { Suspense } from "react"
 import { ServiceFilter } from "@/components/service-filter"
 import { ServiceSkeleton } from "@/components/service-skeleton"
-
-const ServiceGrid = dynamic(() => import("@/components/service-grid"), {
-  ssr: false,
-  loading: () => <ServiceSkeleton count={6} />,
-})
+import { ServiceGrid } from "@/components/service-grid" // normal import
 
 export default function ServicesPage() {
   return (
@@ -18,7 +12,9 @@ export default function ServicesPage() {
           <ServiceFilter />
         </div>
         <div className="w-full md:w-3/4">
-          <ServiceGrid />
+          <Suspense fallback={<ServiceSkeleton count={6} />}>
+            <ServiceGrid />
+          </Suspense>
         </div>
       </div>
     </div>
