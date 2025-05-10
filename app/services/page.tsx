@@ -1,7 +1,5 @@
 'use client';
 
-'use client';
-
 import dynamic from "next/dynamic"
 import { ServiceFilter } from "@/components/service-filter"
 import { ServiceSkeleton } from "@/components/service-skeleton"
