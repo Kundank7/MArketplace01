@@ -11,11 +11,6 @@ export default function ServicesPage() {
         <div className="w-full md:w-1/4">
           <ServiceFilter />
         </div>
-        <div className="w-full md:w-3/4">
-          <Suspense fallback={<ServiceSkeleton count={6} />}>
-            <ServiceGrid />
-          </Suspense>
-        </div>
       </div>
     </div>
   )
