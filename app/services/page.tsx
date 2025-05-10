@@ -1,3 +1,5 @@
+'use client'
+
 import { ServiceFilter } from "@/components/service-filter"
 import ClientServiceGridWrapper from "@/components/client-service-grid-wrapper"
 
