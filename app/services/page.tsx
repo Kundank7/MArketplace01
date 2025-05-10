@@ -1,7 +1,5 @@
-import { Suspense } from "react"
 import { ServiceFilter } from "@/components/service-filter"
-import { ServiceSkeleton } from "@/components/service-skeleton"
-import { ServiceGrid } from "@/components/service-grid" // normal import
+import ClientServiceGridWrapper from "@/components/client-service-grid-wrapper"
 
 export default function ServicesPage() {
   return (
@@ -12,9 +10,7 @@ export default function ServicesPage() {
           <ServiceFilter />
         </div>
         <div className="w-full md:w-3/4">
-          <Suspense fallback={<ServiceSkeleton count={6} />}>
-            <ServiceGrid />
-          </Suspense>
+          <ClientServiceGridWrapper />
         </div>
       </div>
     </div>
