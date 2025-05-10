@@ -1,7 +1,6 @@
-'use client'
-
-import { ServiceFilter } from "@/components/service-filter"
-import ClientServiceGridWrapper from "@/components/client-service-grid-wrapper"
+import { Suspense } from 'react';
+import { ServiceFilter } from "@/components/service-filter";
+import ClientServiceGridWrapper from "@/components/client-service-grid-wrapper";
 
 export default function ServicesPage() {
   return (
@@ -9,12 +8,16 @@ export default function ServicesPage() {
       <h1 className="text-3xl font-bold mb-8">Our Services</h1>
       <div className="flex flex-col md:flex-row gap-8">
         <div className="w-full md:w-1/4">
-          <ServiceFilter />
+          <Suspense fallback={<div>Loading filters...</div>}>
+            <ServiceFilter />
+          </Suspense>
         </div>
         <div className="w-full md:w-3/4">
-          <ClientServiceGridWrapper />
+          <Suspense fallback={<div>Loading services...</div>}>
+            <ClientServiceGridWrapper />
+          </Suspense>
         </div>
       </div>
     </div>
-  )
+  );
 }
